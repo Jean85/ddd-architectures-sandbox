@@ -46,7 +46,6 @@ RUN adduser -D -u 1000 ddd-dev -G www-data \
         --version=2.0.6 \
         --filename=composer
 USER ddd-dev
-RUN composer config -g github-oauth.github.com e46e9d616a32cd27dbb7c6f626b625c61071c5c2
 
  ## ZSH / OhMyZsh
 COPY --chown=ddd-dev:www-data zsh/install-zsh.sh /home/ddd-dev/install-zsh.sh
