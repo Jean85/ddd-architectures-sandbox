@@ -1,3 +1,6 @@
+include makefiles/quality.mk
+include makefiles/test.mk
+
 start:
 	docker-compose up -d
 
@@ -11,6 +14,8 @@ stop: legacy-stop
 
 composer-install: start
 	@docker-compose exec -T php composer install --ansi
+
+pre-commit-check: static-check test
 
 xdebug-ip:
 	$(eval ADDRESS=$(shell docker-compose exec php ip route show 0.0.0.0/0 | grep -Eo 'via \S+' | sed -e 's/via //' || echo "NOT RECOGNIZED"))
