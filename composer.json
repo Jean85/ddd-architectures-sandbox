@@ -12,7 +12,8 @@
         "facile-it/facile-coding-standard": "^0.4.0",
         "phpstan/extension-installer": "^1.0",
         "jangregor/phpstan-prophecy": "^0.8.1",
-        "phpstan/phpstan-phpunit": "^0.12.16"
+        "phpstan/phpstan-phpunit": "^0.12.16",
+        "psalm/plugin-phpunit": "^0.13.0"
     },
     "authors": [
         {
@@ -20,6 +21,16 @@
             "email": "alessandro.lai@facile.it"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Sandobox\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sandobox\\Tests\\": "tests/"
+        }
+    },
     "scripts": {
         "cs-check": "php-cs-fixer fix --dry-run --diff",
         "cs-fix": "php-cs-fixer fix --diff"
